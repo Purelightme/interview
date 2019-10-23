@@ -10,18 +10,7 @@ function loopDir($dir){
             if (filetype($dir.DIRECTORY_SEPARATOR.$file) == 'dir'){
                 loopDir($dir.DIRECTORY_SEPARATOR.$file);
             }else{
-                echo $file."\n";
-            }
-        }
-    }
-}
-function loopDir2($dir){
-    $handle = opendir($dir);
-    while(false !==($file =readdir($handle))){
-        if($file!='.'&&$file!='..'){
-            echo $file."\n";
-            if(filetype($dir.'/'.$file)=='dir'){
-                loopDir($dir.'/'.$file);
+                echo $dir.DIRECTORY_SEPARATOR.$file."\n";
             }
         }
     }
@@ -41,9 +30,7 @@ function loopDir3($dir){
     }
 }
 
-$dir = __DIR__.'/flutter/lol_chess/lib/pages';
-loopDir2($dir);
-echo "=============\n";
+$dir = __DIR__;
 loopDir($dir);
 echo ">>>>>>>>>>>>>\n";
 loopDir3($dir);
